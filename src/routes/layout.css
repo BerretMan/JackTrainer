@@ -3,6 +3,12 @@
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
+@layer base {
+
+:root {
+    --color-golden:#FFD700;
+}
+}
 
 body {
   margin: 0;

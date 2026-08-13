@@ -22,16 +22,25 @@
     <h1>Select a gamemode</h1>
 </center>
 
+<br>
 <center>
-    <Button label={'Hi-lo count'} onclick={() => goto('/count')} size={'10em'}></Button>
-</center>
-<!---
+    <div class="button-container">
+        <Button color="red" label={'Hi-lo count'} onclick={() => goto('/count')} size={'10em'}></Button>
+        <Button color="green" label={'Hi-lo Speedrun'} onclick={() => goto('/count')} size={'10em'}></Button>
+        <Button color="blue" label={'Best Move'} onclick={() => goto('/train')} size={'10em'}></Button>
 
-<center>
-    <h1>Blackjack</h1>
-<CardComponent card={c}></CardComponent>
-
-<button onclick={pickCard}>prends une carte</button><br>
-<button onclick={() => {c.flip();}}>retourne la carte</button>
+    </div>
 </center>
---->
+
+<style lang="css">
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+        width: fit-content;
+        gap: 2em;
+    }
+
+
+</style>
