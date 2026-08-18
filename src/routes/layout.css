@@ -29,13 +29,13 @@ h1 {
     to bottom,
             #f5d78d 0%,
             #c19737 40%,
-            #8b6016 50%,:wheat
+            #8b6016 50%,
             #d1a94b 100%
     );
     -webkit-background-clip: text;
     background-clip:text;
    -webkit-text-fill-color: transparent;
-   color: transparent;
+    color: transparent;
     filter: drop-shadow(2px, 4px, 4px rgba(0,0,0,0.7))
 }
 

@@ -49,9 +49,13 @@
 <center>
     <h1>Blackjack - Trainer mod</h1>
 
-    <h2>essai : {guess}</h2>
-    <h2> réussite: {win}</h2>
-    <h2> winrate: {((win/(guess))*100 || 0).toFixed(2)} %</h2>
+    <div class="stat">
+        <hr>
+        <h2>essai : {guess}</h2>
+        <h2> réussite: {win}</h2>
+        <h2> winrate: {((win/(guess))*100 || 0).toFixed(2)} %</h2>
+        <hr>
+    </div>
 
     <CardComponent card={d1}></CardComponent>
     <br>
@@ -63,3 +67,14 @@
     {/each}
 
 </center>
+
+<style lang="css">
+    hr {
+        width: 30vw;
+        height: 2px;
+        color: var(--color-golden);
+        background-color: var(--color-golden);
+        border-width: 0.1px;
+    }
+
+</style>

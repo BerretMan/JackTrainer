@@ -7,7 +7,7 @@
 <center>
 
     <h1>JackTrainer</h1>
-    <h2 class="golden">Become a smarter gambler</h2>
+    <h2>Become a <span class="golden">smarter</span> gambler</h2>
 
     <hr>
     <br>
