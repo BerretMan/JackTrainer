@@ -34,7 +34,6 @@
         width: var(--button-size);
         height: var(--button-size);
         margin: 2px;
-        margin-left: 50px;
         border-radius: 50%;
         box-shadow: 4px 9px rgba(0,0,0,0.25), inset 0 0 10px rgba(0, 0, 0, 0.5);
         align-items:center;

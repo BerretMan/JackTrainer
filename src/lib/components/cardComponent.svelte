@@ -25,8 +25,9 @@
 <style lang="css">
       .card-container {
         background-color: transparent;
-        width: 200px;
-        height: 290px;
+        width: 40vw;
+        max-width: 200px;
+        aspect-ratio: 200/290;
         perspective: 1000px;
         display: inline-block;
         margin: 10px;

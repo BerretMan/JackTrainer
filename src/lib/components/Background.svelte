@@ -11,7 +11,6 @@
 
 
     const paralax_array = [
-      {size: "8em", blur:"3px",time: 5, zIndex: 10},
       {size: "6em", blur:"5px",time: 8, zIndex: 5},
       {size: "4em", blur:"7px",time: 12, zIndex: -5},
       {size: "2em", blur:"9px",time: 18, zIndex: -10}
@@ -45,8 +44,8 @@
         position: fixed;
         top: 0;
         left: 0;
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100dvh;
         z-index: -1;
         pointer-events: none;
         overflow: hidden;
@@ -57,14 +56,14 @@
             transform: translateY(0) rotate(0deg);
         }
         100% {
-            transform: translateY(110vh) rotate(360deg);
+            transform: translateY(110dvh) rotate(360deg);
         }
     }
 
     .chip-animation {
         filter: blur(var(--blur));
         position:absolute;
-        top: -10vh;
+        top: -20vh;
         left: var(--left);
         animation: fall var(--time) linear infinite;
         animation-delay: var(--delay);

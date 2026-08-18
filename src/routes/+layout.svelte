@@ -6,9 +6,12 @@
 
 <center>
 
-    <h1>JackTrainer</h1>
-    <h2>Become a <span class="golden">smarter</span> gambler</h2>
+    <div class="hidden md:block text-center mb-6">
 
+        <h1>JackTrainer</h1>
+        <h2>Become a <span class="golden">smarter</span> gambler</h2>
+
+    </div>
     <hr>
     <br>
 </center>

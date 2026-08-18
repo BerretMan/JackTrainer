@@ -34,7 +34,6 @@
 		  await sleep(ms);
 		}
 		c.flip();
-		prompt("le" + result);
 		askingCount = true;
 	}
 
