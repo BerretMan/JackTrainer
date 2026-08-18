@@ -17,7 +17,16 @@
 	let guess = $state(0);
 	let win = $state(0);
 
-	function click(label) {
+
+
+    function get_color(c:string): string {
+      if (c=='Double') {return "red"}
+      if (c=='Hit') {return "blue"}
+      if (c=='Stand') {return "green"}
+      if (c=='Split') {return "yellow"}
+    }
+
+	function click(label:string):void {
 	guess++;
 	  let m = new Move();
 	  m.add_player_card(p1);
@@ -50,7 +59,7 @@
     <CardComponent card={p2}></CardComponent>
     <br>
     {#each choose as c}
-        <Button size="8em" color='green' label={c} onclick={() => click(c)}></Button>
+        <Button size="8em" color={get_color(c)} label={c} onclick={() => click(c)}></Button>
     {/each}
 
 </center>

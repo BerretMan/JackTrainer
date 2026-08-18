@@ -13,7 +13,7 @@
 </script>
 
 
-<button class={color} style="--button-size: {size};" onclick={() => onclick()}><h2><b>{label}</b></h2></button>
+<button class={color} style="--button-size: {size};" onclick={() => onclick()}><h2 class="chip-text"><b>{label}</b></h2></button>
 
 <style lang="css">
     .red {
@@ -26,6 +26,9 @@
     .green {
        background:radial-gradient(circle at 30%, #4dff88 0%, #009933 100%);
     }
+    .yellow {
+           background: radial-gradient(circle at 30%, #ffff66 0%, #cc9900 100%);
+        }
     button {
         position: relative;
         width: var(--button-size);
@@ -37,6 +40,8 @@
         align-items:center;
         justify-content: center;
         text-shadow: 2px 2px 4px  black;
+        padding: 1%;
+        white-space: pre-wrap;
     }
 
     button::after {

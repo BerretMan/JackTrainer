@@ -19,11 +19,32 @@ body {
 }
 
 h1 {
-    font-size: 2.5em;
+    font-size: 5em;
+
+}
+
+.golden {
+    font-weight: bold;
+    background: linear-gradient(
+    to bottom,
+            #f5d78d 0%,
+            #c19737 40%,
+            #8b6016 50%,:wheat
+            #d1a94b 100%
+    );
+    -webkit-background-clip: text;
+    background-clip:text;
+   -webkit-text-fill-color: transparent;
+   color: transparent;
+    filter: drop-shadow(2px, 4px, 4px rgba(0,0,0,0.7))
+}
+
+.chip-text {
+    font-size: 1.5em
 }
 
 h2 {
-    font-size: 1.5em;
+    font-size: 2.5em;
 }
 
 h3 {

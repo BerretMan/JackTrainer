@@ -43,7 +43,7 @@
     <div class="div choose">
 
         {#each choose as c}
-            <Button color={c < 0 ? 'red': c === 0 ? 'blue' : 'green'} label={c} onclick={() => click(c)}></Button>
+            <Button size="7em" color={c < 0 ? 'red': c === 0 ? 'blue' : 'green'} label={c} onclick={() => click(c)}></Button>
         {/each}
     </div>
 </center>

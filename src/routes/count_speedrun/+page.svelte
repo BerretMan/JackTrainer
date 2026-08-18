@@ -62,7 +62,7 @@
     <h1>What's the Hi-Lo count?</h1>
 
     <Button size="10em"  color='green' label='start easy' onclick={() => start(10,1000)}></Button>
-    <Button size="10em"  color='yellow' label='start medium' onclick={() => start(20,500)}></Button>
+    <Button size="10em"  color='blue' label='start medium' onclick={() => start(20,500)}></Button>
     <Button size="10em"  color='red' label='start hard' onclick={() => start(40,250)}></Button>
 
     {#if askingCount}
