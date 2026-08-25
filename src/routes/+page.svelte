@@ -25,6 +25,7 @@
 <br>
 <center>
     <div class="button-container">
+        <Button color="yellow" label={'Play'} onclick={() => goto('/play')} size={'10em'}></Button>
         <Button color="red" label={'Hi-lo count'} onclick={() => goto('/count')} size={'10em'}></Button>
         <Button color="green" label={'Hi-lo Speedrun'} onclick={() => goto('/count_speedrun')} size={'10em'}></Button>
         <Button color="blue" label={'Best\nMove'} onclick={() => goto('/train')} size={'10em'}></Button>

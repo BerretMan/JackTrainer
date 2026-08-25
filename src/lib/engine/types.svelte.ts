@@ -1,5 +1,3 @@
-import { X509Certificate } from "node:crypto";
-
 export class Card {
     name:string;
     value:number;
@@ -10,9 +8,9 @@ export class Card {
     const typeOfCard = name.split('_')[0].toLowerCase();
     if (['2','3','4','5','6','7','8','9','10'].includes(typeOfCard)) {
       this.value = parseInt(typeOfCard, 10);
-    } else if (!['black','red'].includes(typeOfCard)){
+    } else if (['jack','queen','king'].includes(typeOfCard)){
       this.value = 10;
-    } else {
+    } else  if (['ace'].includes(typeOfCard)){
       this.value = 11;
     }
 
@@ -100,12 +98,12 @@ export const PAIRS_STRATEGY: Record<number, Record<number, Action>> = {
  *  ht : hard total
  */
 export class Move {
-  p_cards: Card[] = []
-  p_st: number = 0
-  p_ht: number = 0
-  d_cards: Card[] = []
-  d_st: number = 0
-  d_ht: number = 0
+  p_cards: Card[] = $state([])
+  p_st: number = $state(0)
+  p_ht: number = $state(0)
+  d_cards: Card[] = $state([])
+  d_st: number = $state(0)
+  d_ht: number = $state(0)
 
   add_player_card(c:Card): void {
     this.p_cards.push(c);
@@ -149,5 +147,14 @@ export class Move {
     if (this.p_ht > 16) return 'S';
     if (this.p_ht < 9) return 'H';
     return HARD_STRATEGY[this.p_ht][d_v];
+  }
+
+  get p_score(): number {
+      return this.p_st > 0 ? this.p_st : this.p_ht;
+  }
+
+
+  get d_score(): number {
+      return this.d_st > 0 ? this.d_st : this.d_ht;
   }
 }
