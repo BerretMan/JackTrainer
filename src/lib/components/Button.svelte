@@ -27,8 +27,13 @@
        background:radial-gradient(circle at 30%, #4dff88 0%, #009933 100%);
     }
     .yellow {
-           background: radial-gradient(circle at 30%, #ffff66 0%, #cc9900 100%);
-        }
+        background: radial-gradient(circle at 30%, #ffff66 0%, #cc9900 100%);
+    }
+
+    .grey {
+
+        background: radial-gradient(circle at 30%, #b3b3b3 0%, #4d4d4d 100%);
+    }
     button {
         position: relative;
         width: var(--button-size);

@@ -93,30 +93,19 @@ export const PAIRS_STRATEGY: Record<number, Record<number, Action>> = {
   10 : {2: 'S',3:'S',4:'S',5:'S',6:'S',7:'S',8:'S',9:'S',10:'S',11:'S'},
   11 : {2: 'P',3:'P',4:'P',5:'P',6:'P',7:'P',8:'P',9:'P',10:'P',11:'P'}
 }
-/**
- *  st: soft total
- *  ht : hard total
- */
-export class Move {
-  p_cards: Card[] = $state([])
-  p_st: number = $state(0)
-  p_ht: number = $state(0)
-  d_cards: Card[] = $state([])
-  d_st: number = $state(0)
-  d_ht: number = $state(0)
 
-  add_player_card(c:Card): void {
-    this.p_cards.push(c);
-    const result = this.calculHand(this.p_cards);
-    this.p_st = result.st;
-    this.p_ht = result.ht;
-  }
 
-  add_dealer_card(c:Card): void {
-    this.d_cards.push(c);
-    const result = this.calculHand(this.d_cards);
-    this.d_st = result.st;
-    this.d_ht = result.ht;
+//
+export class Hand {
+  cards: Card[] = $state([]);
+  st: number = $state(0);
+  ht: number = $state(0);
+
+  add_card(c:Card): void {
+    this.cards.push(c);
+    const result = this.calculHand(this.cards);
+    this.st = result.st;
+    this.ht = result.ht;
   }
 
   private calculHand(cards: Card[]): { st: number; ht: number } {
@@ -134,27 +123,87 @@ export class Move {
     }
   }
 
-  optimalMove(): Action {
-    const d_v = this.d_cards[0].value;
-    if (this.p_cards.length == 2 && this.p_cards[0].value == this.p_cards[1].value) {
-      return PAIRS_STRATEGY[this.p_cards[0].value][d_v];
+  optimalMove(d_v:number): Action {
+    if (this.cards.length == 2 && this.cards[0].value == this.cards[1].value) {
+      return PAIRS_STRATEGY[this.cards[0].value][d_v];
     }
 
-    if (this.p_st > 0) {
-      if (this.p_st >= 20) return 'S';
-      return SOFT_STRATEGY[this.p_st][d_v];
+    if (this.st > 0) {
+      if (this.st >= 20) return 'S';
+      return SOFT_STRATEGY[this.st][d_v];
     }
-    if (this.p_ht > 16) return 'S';
-    if (this.p_ht < 9) return 'H';
-    return HARD_STRATEGY[this.p_ht][d_v];
+    if (this.ht > 16) return 'S';
+    if (this.ht < 9) return 'H';
+    return HARD_STRATEGY[this.ht][d_v];
   }
 
-  get p_score(): number {
-      return this.p_st > 0 ? this.p_st : this.p_ht;
+  get score(): number {
+    return this.st > 0 ? this.st : this.ht;
+  }
+}
+
+/**
+ *  st: soft total
+ *  ht : hard total
+ */
+export class Move {
+  p_hands: Hand[] = $state([new Hand()])
+  p_i: number = $state(0)
+  d_cards: Card[] = $state([])
+  d_st: number = $state(0)
+  d_ht: number = $state(0)
+
+  add_dealer_card(c:Card): void {
+    this.d_cards.push(c);
+    const result = this.calculHand(this.d_cards);
+    this.d_st = result.st;
+    this.d_ht = result.ht;
   }
 
+  optimalMove(): Action { return this.p_hands[this.p_i].optimalMove(this.d_score); }
+
+  private calculHand(cards: Card[]): { st: number; ht: number } {
+    let total = cards.reduce((sum, c) => sum + c.value, 0);
+    let jack = cards.filter(c => c.value === 11).length;
+
+    while (total > 21 && jack > 0) {
+      total -= 10;
+      jack--;
+    }
+    if (jack > 0) {
+      return { st: total,ht: total - 10};
+    } else {
+      return { st: 0,ht: total };
+    }
+  }
+
+  split(c1: card, c2: card) {
+    const currentHand = this.p_hands[this.p_i];
+    const splitCard = currentHand.cards.pop()!;
+    const firstCard = currentHand.cards.pop()!;
+
+    currentHand.st = 0;
+    currentHand.ht = 0;
+    currentHand.add_card(firstCard);
+    currentHand.add_card(c1);
+
+    const newHand = new Hand();
+    newHand.add_card(c2);
+    newHand.add_card(splitCard);
+    this.p_hands.splice(this.p_i + 1, 0, newHand);
+  }
+  add_player_card(c: Card): void { this.p_hands[this.p_i].add_card(c);}
 
   get d_score(): number {
       return this.d_st > 0 ? this.d_st : this.d_ht;
+  }
+
+  get p_cards(): Card[] {
+    return this.p_hands[this.p_i].cards;
+  }
+  get p_score(): number {
+      const st = this.p_hands[this.p_i].st;
+      const ht = this.p_hands[this.p_i].ht;
+      return st > 0 ? st : ht;
   }
 }
