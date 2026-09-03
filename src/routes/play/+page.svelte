@@ -15,23 +15,22 @@
 
 	})
 	function game(a: Action) {
-	  if (!partyEnd) {
+	  if (partyEnd) return;
 
-	      if (a =='H') {
-			m.add_player_card(d.pickCard());
-		    if (m.p_score > 21) {
-				gameOverOrNextHand()
-			}
+	  if (a =='H') {
+	      m.add_player_card(d.pickCard());
+		  if (m.p_score > 21) {
+		      gameOverOrNextHand()
+			  }
 		  }
 		  if (a=='P') {
-				m.split(d.pickCard(),d.pickCard());
+		      m.split(d.pickCard(),d.pickCard());
 		  }
 		  if (a== 'S') {
-			gameOverOrNextHand();
+		      gameOverOrNextHand();
 		  }
 
 		  if(m.d_score >21 || m.p_score >21) {partyEnd=true}
-		}
 
 	}
 
@@ -68,10 +67,12 @@
 </center>
 <center>
 <br><br>
-{#each m.p_hands as h}
-    {#each h.cards as c}
-        <CardComponent card={c}></CardComponent>
-    {/each}
+{#each m.p_hands as h,i}
+    <div style ="opacity: {i==m.p_i ? '1' : '0.5'}">
+        {#each h.cards as c}
+            <CardComponent card={c}></CardComponent>
+        {/each}
+    </div>
 {/each}
 
 <p>{m.p_score}</p>

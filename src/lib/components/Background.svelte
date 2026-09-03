@@ -56,7 +56,7 @@
             transform: translateY(0) rotate(0deg);
         }
         100% {
-            transform: translateY(110dvh) rotate(360deg);
+            transform: translateY(120dvh) rotate(360deg);
         }
     }
 
