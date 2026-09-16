@@ -7,9 +7,18 @@
     import { injectAnalytics } from '@vercel/analytics/sveltekit';
 
     injectAnalytics({ mode: dev ? 'development' : 'production' });
+
+
+    import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+
+    injectSpeedInsights();
 </script>
+    <svelte:head>
+      <link rel="icon" href={"/favicon.svg"} />
+    </svelte:head>
 
 <center>
+
 
     <div class="hidden md:block text-center mb-6">
 

@@ -46,6 +46,7 @@
 		"esbuild@0.28.1": true
 	},
 	"dependencies": {
-		"@vercel/analytics": "^2.0.1"
+		"@vercel/analytics": "^2.0.1",
+		"@vercel/speed-insights": "^2.0.0"
 	}
 }

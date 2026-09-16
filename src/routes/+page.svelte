@@ -1,7 +1,6 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
 	import './layout.css';
-	import favicon from '$lib/assets/favicon.svg';
 	import { Card,Deck } from '$lib/engine/types.svelte';
 	import CardComponent from '$lib/components/cardComponent.svelte';
 	import Button from '$lib/components/Button.svelte';

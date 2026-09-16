@@ -1,6 +1,5 @@
 <script lang="ts">
 	import '../layout.css';
-	import favicon from '$lib/assets/favicon.svg';
 	import { Card,Deck } from '$lib/engine/types.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import CardComponent from '$lib/components/cardComponent.svelte';
