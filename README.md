@@ -2,7 +2,9 @@
 
 A web application writen in **Sveltekit** to train on Blackjack. 
 
-You can access the app here https://jack-trainer-kappa.vercel.app/
+You can access the app here https://jack-trainer-kappa.vercel.application
+
+still in developpement
 
 ## Game Modes
 
