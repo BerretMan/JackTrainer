@@ -22,9 +22,12 @@ export default defineConfig({
         name: 'JackTrainer',
         short_name: 'JT',
         theme_color: '#FFD700',
+        background_color: '#000000',
+        display: 'standalone',
         icons: [
           {src: 'icon-192x192.png',sizes: '192x192', type: 'image/png'},
           {src: 'icon-512x512.png',sizes: '512x512', type: 'image/png'},
+          {src: 'icon-512x512.png',sizes: '512x512', type: 'image/png' ,purpose: 'maskable'},
         ]
       }
 			})
