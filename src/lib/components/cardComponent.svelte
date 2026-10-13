@@ -23,6 +23,8 @@
 
 
 <style lang="css">
+
+
       .card-container {
         background-color: transparent;
         width: 30vw;
@@ -31,6 +33,16 @@
         perspective: 1000px;
         display: inline-block;
         margin: 10px;
+      }
+
+      @media(min-width: 768px) {
+          .card-container {
+              height: 40vh;
+              max-height: 23vh;
+
+              width: auto;
+              max-width: none;
+          }
       }
 
       .card-inner {

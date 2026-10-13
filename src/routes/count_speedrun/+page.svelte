@@ -64,9 +64,9 @@
 
     <div class="flex flex-row justify-center items-center gap-4 flex-wrap w-full mt-4">
 
-        <Button size="10em"  color='green' label='start easy' onclick={() => start(10,1000)}></Button>
+        <Button size="10em"  color='green' label='start   easy' onclick={() => start(10,1000)}></Button>
         <Button size="10em"  color='blue' label='start medium' onclick={() => start(20,500)}></Button>
-        <Button size="10em"  color='red' label='start hard' onclick={() => start(40,250)}></Button>
+        <Button size="10em"  color='red' label='start    hard' onclick={() => start(40,250)}></Button>
     </div>
     {#if askingCount}
 
