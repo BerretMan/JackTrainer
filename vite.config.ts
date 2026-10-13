@@ -3,9 +3,10 @@ import { defineConfig } from 'vitest/config';
 import { playwright } from '@vitest/browser-playwright';
 import adapter from '@sveltejs/adapter-vercel';
 import { sveltekit } from '@sveltejs/kit/vite';
+import { SvelteKitPWA } from '@vite-pwa/sveltekit';
 
 export default defineConfig({
-	plugins: [
+  plugins: [
 		tailwindcss(),
 		sveltekit({
 			compilerOptions: {
@@ -14,7 +15,19 @@ export default defineConfig({
 					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
 			},
 			adapter: adapter()
-		})
+    }),
+	  SvelteKitPWA({
+      registerType: 'autoUpdate',
+      manifest: {
+        name: 'JackTrainer',
+        short_name: 'JT',
+        theme_color: '#FFD700',
+        icons: [
+          {src: 'icon-192x192.png',sizes: '192x192', type: 'image/png'},
+          {src: 'icon-512x512.png',sizes: '512x512', type: 'image/png'},
+        ]
+      }
+			})
 	],
 	test: {
 		expect: { requireAssertions: true },
