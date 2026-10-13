@@ -1,6 +1,8 @@
 <script lang="ts">
 	import Background from '$lib/components/Background.svelte';
     import './layout.css'
+    import {onMount} from 'svelte';
+    import {pwaInfo} from 'virtual:pwa-info';
     let { children } = $props();
 
     import { dev } from '$app/environment';
@@ -12,9 +14,19 @@
     import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 
     injectSpeedInsights();
+
+    onMount(async () => {
+      if (pwaInfo) {
+        const {registerSW} = await import('virtual:pwa-register');
+        registerSW({imediate: true});
+      }
+    });
+    let webManifestLink = $derived(pwaInfo ? pwaInfo.webManifest.linkTag : '');
 </script>
+
     <svelte:head>
       <link rel="icon" href={"/favicon.svg"} />
+      {@html webManifestLink}
     </svelte:head>
 
 <center>
