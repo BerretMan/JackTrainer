@@ -7,6 +7,7 @@
 
 :root {
     --color-golden:#FFD700;
+    font-size: 70%;
 }
 }
 
@@ -49,4 +50,12 @@ h2 {
 
 h3 {
     font-size: clamp(1rem,3vw,1.25rem);
+}
+
+hr.gold {
+    width: 30vw;
+    height: 2px;
+    color: var(--color-golden);
+    background-color: var(--color-golden);
+    border-width: 0.1px;
 }

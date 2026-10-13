@@ -63,7 +63,7 @@
     <CardComponent card={c}></CardComponent>
 {/each}
 
-<p>{m.d_score}</p>
+<h2>{m.d_score}</h2>
 </center>
 <center>
 <br><br>
@@ -75,7 +75,7 @@
     </div>
 {/each}
 
-<p>{m.p_score}</p>
+<h2>{m.p_score}</h2>
 <br>
 {#if partyEnd===false}
     <Button size="10em"  color='red' label='Hit' onclick={() => game('H')}></Button>

@@ -50,7 +50,7 @@
 </script>
 
 <center>
-    <h1>Blackjack - Hi-lo's speedrun </h1>
+    <h1>Hi-lo's speedrun </h1>
 
     <br>
     {#if isStart}

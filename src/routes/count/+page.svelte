@@ -31,9 +31,12 @@
 <center>
     <h1>Blackjack - Hi-lo's count </h1>
 
-    <h2>essai : {guess}</h2>
-    <h2> réussite: {win}</h2>
+    <hr class="gold">
+    <h2> try: {guess}</h2>
+    <h2> win: {win}</h2>
     <h2> winrate: {((win/(guess))*100 || 0).toFixed(2)} %</h2>
+
+    <hr class="gold">
     <br>
     <CardComponent card={c1}></CardComponent>
     <CardComponent card={c2}></CardComponent>
