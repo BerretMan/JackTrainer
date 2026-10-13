@@ -24,7 +24,7 @@ export default defineConfig({
       },
       manifest: {
         name: 'JackTrainer',
-        short_name: 'JT',
+        short_name: 'JackTrainer',
         theme_color: '#FFD700',
         background_color: '#000000',
         display: 'standalone',
