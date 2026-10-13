@@ -34,7 +34,12 @@
         display: inline-block;
         margin: 10px;
       }
-
+      @media(max-width: 768px) {
+          .card-container {
+              margin-left: -5.5rem;
+              margin-right: -2rem;
+          }
+      }
       @media(min-width: 768px) {
           .card-container {
               height: 40vh;
