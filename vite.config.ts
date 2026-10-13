@@ -18,6 +18,10 @@ export default defineConfig({
     }),
 	  SvelteKitPWA({
       registerType: 'autoUpdate',
+      workbox: {
+        globPatterns: ['client/**/*.{js,css,ico,png,svg,webp,webmanifest}'],
+        navigateFallbackDenylist: [/^\/_vercel/]
+      },
       manifest: {
         name: 'JackTrainer',
         short_name: 'JT',

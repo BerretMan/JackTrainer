@@ -18,7 +18,7 @@
     onMount(async () => {
       if (pwaInfo) {
         const {registerSW} = await import('virtual:pwa-register');
-        registerSW({imediate: true});
+        registerSW({immediate: true});
       }
     });
     let webManifestLink = $derived(pwaInfo ? pwaInfo.webManifest.linkTag : '');
