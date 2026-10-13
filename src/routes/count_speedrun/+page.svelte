@@ -2,10 +2,12 @@
 	import '../layout.css';
 	import { Card,Deck } from '$lib/engine/types.svelte';
 	import Button from '$lib/components/Button.svelte';
+	import Modal from '$lib/components/Modal.svelte';
 	import CardComponent from '$lib/components/cardComponent.svelte';
 	let { children } = $props();
 	let deck = new Deck();
-
+	let Count = $state(0);
+	let showResult = $state(false);
 	let c = $state(deck.pickCard());
 	c.flip()
 
@@ -53,7 +55,7 @@
     <br>
     {#if isStart}
         <h2>{i}/{number_card}</h2>
-        <h2>Temps entre chaque carte: {timeBeetweenEachCard} ms</h2>
+        <h2>Time beetween each card: {timeBeetweenEachCard} ms</h2>
     {/if}
     <CardComponent card={c}></CardComponent>
 
@@ -61,19 +63,34 @@
     <br>
 
     <div class="flex flex-row justify-center items-center gap-4 flex-wrap w-full mt-4">
+
+        <Button size="10em"  color='green' label='debug' onclick={() => start(10,1)}></Button>
         <Button size="10em"  color='green' label='start easy' onclick={() => start(10,1000)}></Button>
         <Button size="10em"  color='blue' label='start medium' onclick={() => start(20,500)}></Button>
         <Button size="10em"  color='red' label='start hard' onclick={() => start(40,250)}></Button>
     </div>
     {#if askingCount}
-        <label>Quel est le count? </label>
-  		<input
-			type="number"
-			bind:value={answer}
-			autofocus
-			onkeydown={(e) => e.key === 'Enter' && validate()}
-			style="position: relative; z-index: 9999; pointer-events: auto; color: black; background: white;"
-		/>
+
+        <Modal bind:showModal={askingCount}>
+            {#if showResult==false}
+                <h1>Count: {Count}</h1>
+                <center>
+                    <Button size="10em"  color='green' label='+1' onclick={() => Count++}></Button>
+                    <Button size="10em"  color='red' label='-1' onclick={() => Count--}></Button>
+                    <Button size="10em"  color='blue' label='submit' onclick={() => showResult=true}></Button>
+                </center>
+            {:else}
+                <h1>Count = {result}</h1>
+                {#if result==Count}
+                    <h2>Well played</h2>
+                {:else}
+                    <h2>Better luck next time</h2>
+                {/if}
+                <center>
+                    <Button size="10em"  color='red' label='replayed' onclick={() => {showResult=false;askingCount=false;}}></Button>
+                </center>
+            {/if}
+        </Modal>
     {/if}
 </center>
 
