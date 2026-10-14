@@ -8,6 +8,7 @@
 :root {
     --color-golden:#FFD700;
     font-size: 70%;
+
 }
 }
 
@@ -58,4 +59,6 @@ hr.gold {
     color: var(--color-golden);
     background-color: var(--color-golden);
     border-width: 0.1px;
+
+    width: 50%;
 }

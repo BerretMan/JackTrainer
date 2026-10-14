@@ -36,8 +36,8 @@
       }
       @media(max-width: 768px) {
           .card-container {
-              margin-left: -5.5rem;
-              margin-right: -2rem;
+              margin-left: -4rem;
+              margin-right: -4rem;
           }
       }
       @media(min-width: 768px) {
