@@ -27,6 +27,17 @@
     <svelte:head>
       <link rel="icon" href={"/favicon.svg"} />
       {@html webManifestLink}
+
+      <meta name="theme-color" content="#FFD700" />
+
+      <meta property="og:site_name" content="JackTrainer" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://jack-trainer-kappa.vercel.app/" />
+      <meta property="og:title" content="JackTrainer" />
+        <meta property="og:description" content="Blackjack Strategy & Hi-Lo Trainer" />
+        <meta property="og:image" content="/Overlay.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
     </svelte:head>
 
 <center>
