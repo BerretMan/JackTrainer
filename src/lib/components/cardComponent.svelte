@@ -11,7 +11,7 @@
 <div class="card-container">
     <div class="card-inner" class:flipped={card.hidden}>
         <div class="card-face card-front">
-            <img src="{card.getImage()}" alt="{card.name}">
+            <img src="{card.getImage()}" alt="{card.name}" decoding="sync">
         </div>
 
         <div class="card-face card-back">

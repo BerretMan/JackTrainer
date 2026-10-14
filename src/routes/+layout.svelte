@@ -27,9 +27,13 @@
     <svelte:head>
       <link rel="icon" href={"/favicon.svg"} />
       {@html webManifestLink}
+      {#each ['clubs', 'diamonds', 'hearts', 'spades'] as c}
+		{#each ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'ace', 'jack', 'king', 'queen'] as v}
+			<link rel="preload" as="image" href="/cards/{v}_of_{c}.svg" />
+		{/each}
+		{/each}
 
       <meta name="theme-color" content="#FFD700" />
-
       <meta property="og:site_name" content="JackTrainer" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://jack-trainer-kappa.vercel.app/" />
