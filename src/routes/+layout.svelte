@@ -37,8 +37,8 @@
         <h1>JackTrainer</h1>
         <h2>Become a <span class="golden">smarter</span> gambler</h2>
 
+        <hr>
     </div>
-    <hr>
     <br>
 </center>
 {@render children()}

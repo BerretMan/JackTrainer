@@ -1,10 +1,13 @@
 # Jack Trainer 
+[![SvelteKit](https://img.shields.io/badge/SvelteKit-FF3E00?style=for-the-badge&logo=svelte&logoColor=white)](https://kit.svelte.dev/)
+[![Live Demo](https://img.shields.io/badge/Demo-Live_on_Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://jack-trainer-kappa.vercel.app)
 
-A web application writen in **Sveltekit** to train on Blackjack. 
+
+A web application written in **Sveltekit** to train Blackjack Basic Strategy and Hi-Lo card counting. 
 
 You can access the app here https://jack-trainer-kappa.vercel.app
 
-still in developpement
+![JackTrainer Screenshot](./static/Screen1.png) ![JackTrainer Screenshot](./static/Screen2.png)
 
 ## Game Modes
 

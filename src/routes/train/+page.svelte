@@ -46,7 +46,7 @@
 </script>
 
 <center>
-    <h1>Blackjack - Trainer mod</h1>
+    <h1>Trainer mod</h1>
 
     <div class="stat">
         <hr class="gold">
